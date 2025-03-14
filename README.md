@@ -1,3 +1,5 @@
+# Tutorial 3
+
 ## Fitur-Fitur yang Diimplementasikan
 
 ### 1. Double Jump
@@ -58,7 +60,35 @@ Memungkinkan karakter untuk merunduk, berguna untuk menghindari rintangan atau m
 
 ---
 
+# Tutorial 5
+
+## Fitur-Fitur yang Diimplementasikan
+
+### 1. Sprite Animation
+
+Memungkinkan karakter untuk memiliki animasi dalam berbagai kondisi.
+
+### 2. Sounds
+
+Memungkinkan game untuk memutar media berupa suara.
+
+---
+
+## Implementasi di Godot
+
+### Sprite Animation
+
+1. Pemain memiliki animasi untuk berbagai kondisi, contohnya adalah ketika diam yaitu idle dan berjalan yaitu walk.
+
+### Sounds
+
+1. Akan terdapat sound effect yang diputar ketika pemain meraih sebuah kunci.
+2. Terdapat juga background sound yang diputar selama permainan berjalan.
+
+---
+
 ## Referensi
 
 1. [Forum Godot: Modular 2D Platformer Movement](https://forum.godotengine.org/t/godot-4-modular-2d-platformer-movement/45870)
 2. [Dokumentasi Godot: 2D Movement](https://docs.godotengine.org/en/stable/tutorials/2d/2d_movement.html)
+3. [CSUI Gamedev Website - Tutorial 5](https://csui-game-development.github.io/tutorials/tutorial-5/)
