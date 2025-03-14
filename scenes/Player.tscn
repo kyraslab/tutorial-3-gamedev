@@ -1,0 +1,60 @@
+[gd_scene load_steps=9 format=3 uid="uid://ccii4ahsv4ne2"]
+
+[ext_resource type="Script" path="res://scenes/PlayerAnimation.gd" id="1_fxeea"]
+[ext_resource type="Texture2D" uid="uid://b3ex7f1s4lrqy" path="res://assets/player_tilesheet.png" id="1_mr6ep"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3j6ww"]
+size = Vector2(20, 21.8952)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b1y13"]
+atlas = ExtResource("1_mr6ep")
+region = Rect2(0, 0, 80, 110)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2smtx"]
+atlas = ExtResource("1_mr6ep")
+region = Rect2(0, 0, 80, 110)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0dobq"]
+atlas = ExtResource("1_mr6ep")
+region = Rect2(0, 110, 80, 110)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s6p2h"]
+atlas = ExtResource("1_mr6ep")
+region = Rect2(80, 110, 80, 110)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_uow58"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b1y13")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2smtx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0dobq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s6p2h")
+}],
+"loop": true,
+"name": &"Jalan_Kanan",
+"speed": 5.0
+}]
+
+[node name="Player" type="CharacterBody2D"]
+script = ExtResource("1_fxeea")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 0.300002)
+scale = Vector2(3.8, 4.96)
+shape = SubResource("RectangleShape2D_3j6ww")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_uow58")
+animation = &"Idle"

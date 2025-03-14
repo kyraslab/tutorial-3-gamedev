@@ -1,7 +1,12 @@
-[gd_scene load_steps=3 format=3 uid="uid://dsyfep1odrxje"]
+[gd_scene load_steps=7 format=3 uid="uid://dsyfep1odrxje"]
 
 [ext_resource type="PackedScene" uid="uid://devrfxl6pixv7" path="res://scenes/Ground.tscn" id="1"]
 [ext_resource type="PackedScene" uid="uid://c4c5q8qqdva6r" path="res://scenes/character.tscn" id="2_voea2"]
+[ext_resource type="PackedScene" uid="uid://ccii4ahsv4ne2" path="res://scenes/Player.tscn" id="3_cnojb"]
+[ext_resource type="AudioStream" uid="uid://dve7s4qvxq23y" path="res://assets/assets_sound_bgm.wav" id="4_nm8bq"]
+[ext_resource type="Script" path="res://scenes/portal.gd" id="5_3trx4"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vv8p5"]
 
 [node name="Root" type="Node2D"]
 
@@ -15,4 +20,26 @@ position = Vector2(789.149, 294.054)
 position = Vector2(225.95, 294.562)
 
 [node name="CharacterBody2D" parent="." instance=ExtResource("2_voea2")]
+visible = false
 position = Vector2(257, 168)
+
+[node name="Player" parent="." instance=ExtResource("3_cnojb")]
+position = Vector2(111, 0)
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+position = Vector2(257, 168)
+scale = Vector2(4.84, 4.36)
+stream = ExtResource("4_nm8bq")
+volume_db = 1.0
+autoplay = true
+
+[node name="Portal" type="Area2D" parent="."]
+position = Vector2(923, 53)
+scale = Vector2(1.09603, 1.86912)
+script = ExtResource("5_3trx4")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Portal"]
+scale = Vector2(1, 10.6)
+shape = SubResource("RectangleShape2D_vv8p5")
+
+[connection signal="body_entered" from="Portal" to="Portal" method="_on_body_entered"]
